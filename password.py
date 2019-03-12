@@ -1,6 +1,7 @@
 import sys
 import requests
 import hashlib
+import time
 
 passwords = sys.argv[1:]
 if not passwords:
@@ -20,5 +21,7 @@ for password in passwords:
             break
     else:
         print(f'Your password, {password}, is safe! Nothing found')
-
-     
+    
+    print('\tSleeping for 3 seconds...')
+    sys.stdout.flush()
+    time.sleep(3)
