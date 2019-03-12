@@ -8,7 +8,6 @@ if not passwords:
     raise("Please supply at least one password")
 
 for password in passwords:
-    #password = password.encode()
     sha1 = hashlib.sha1(password.encode()).hexdigest()
     to_send = sha1[:5]
     url = f'https://api.pwnedpasswords.com/range/{to_send}'
@@ -17,11 +16,15 @@ for password in passwords:
     for possibility in possibilities:
         if sha1[5:].upper() in possibility:
             print('For password', password, 
-                    'there are', possibility.split(':')[1], 'leaks')
+                    'there are', possibility.split(':')[1], 'leaks',
+                    flush=True)
             break
     else:
-        print(f'Your password, {password}, is safe! Nothing found')
+        print(f'Your password, {password}, is safe! Nothing found',
+                flush=True)
     
-    print('\tSleeping for 3 seconds...')
-    sys.stdout.flush()
-    time.sleep(3)
+    sleep_time = 3
+    for i in range(sleep_time, 0, -1):
+        print('\tSleeping for', i, 'seconds...\r', flush=True, end='')
+        time.sleep(1)
+    print()
