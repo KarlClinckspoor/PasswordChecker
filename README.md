@@ -1,6 +1,6 @@
 # PasswordChecker
 
-This is a simple script to send a request to the api from haveibeenpwned.com and check if a password has been leaked before. Inspired on a computerphile video.
+This is a simple script to send a request to the api from haveibeenpwned.com and check if a password has been leaked before. Inspired by a [computerphile video](https://www.youtube.com/watch?v=hhUb5iknVJs&t=401s)
 
 ## Usage
 
